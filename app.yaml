@@ -5,6 +5,14 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /static/ico
+  static_dir: static/ico
+- url: /static/img
+  static_dir: static/img
+- url: /static/js
+  static_dir: static/js
+- url: /static/less
+  static_dir: static/less
 - url: /.*
   script: main.app
 
