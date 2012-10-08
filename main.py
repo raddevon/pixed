@@ -15,7 +15,7 @@ class Handler(webapp2.RequestHandler):
 
 class MainHandler(Handler):
     def get(self):
-        self.response.out.write('Hello world!')
+        self.render('hero.html')
 
 
 app = webapp2.WSGIApplication([
