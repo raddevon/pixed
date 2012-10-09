@@ -1,0 +1,29 @@
+.borderRadius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius:@radius;
+	-ms-border-radius:@radius;
+	border-radius: @radius;
+}
+
+.boxShadow (@shadow: 0 1px 3px rgba(168, 168, 168, 1)) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	-o-box-shadow:@shadow;
+	-ms-box-shadow:@shadow;
+	box-shadow: @shadow;
+}
+
+.dropShadow(@width:100px, @height:30px, @dec:30px, @force:1, @color:black, @position:absolute){
+	&:after{
+		content:'';
+		width:@width;
+		height:@height;
+		display:block;
+		position:@position;
+		bottom: 4000px;
+		
+		.borderRadius(@width/2 ~"/" @height/2);
+		.boxShadow(0px (@dec + 4000px) (@height/2) -(@height/2-@force) @color);
+	}
+}
