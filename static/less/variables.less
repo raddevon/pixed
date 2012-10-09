@@ -28,11 +28,13 @@
 @orange:                #f89406;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
+@appleGreen:            #a9ea0c;
+@appleFlesh:            #f0ffc4;
 
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @white;
+@bodyBackground:        @appleGreen;
 @textColor:             @grayDark;
 
 
@@ -173,14 +175,14 @@
 @navbarBrandColor:                @navbarLinkColor;
 
 // Inverted navbar
-@navbarInverseBackground:                #111111;
-@navbarInverseBackgroundHighlight:       #222222;
-@navbarInverseBorder:                    #252525;
+@navbarInverseBackground:                darken(@navbarInverseBackgroundHighlight, 5%);
+@navbarInverseBackgroundHighlight:       @appleFlesh;
+@navbarInverseBorder:                    lighten(@bodyBackground, 10%);
 
-@navbarInverseText:                      @grayLight;
-@navbarInverseLinkColor:                 @grayLight;
-@navbarInverseLinkColorHover:            @white;
-@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseText:                      @gray;
+@navbarInverseLinkColor:                 @gray;
+@navbarInverseLinkColorHover:            @gray;
+@navbarInverseLinkColorActive:           @black;
 @navbarInverseLinkBackgroundHover:       transparent;
 @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
 
@@ -201,7 +203,7 @@
 
 // Hero unit
 // -------------------------
-@heroUnitBackground:              @grayLighter;
+@heroUnitBackground:              @appleFlesh;
 @heroUnitHeadingColor:            inherit;
 @heroUnitLeadColor:               inherit;
 
