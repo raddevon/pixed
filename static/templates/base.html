@@ -17,10 +17,7 @@
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/static/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/ico/apple-touch-icon-precomposed.png">
   </head>
 
   <body>
@@ -33,7 +30,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Pixed</a>
+          <a class="brand" href="#"><img src="/static/img/apple.png" /><img src="/static/img/pixed.png" alt="Pixed"/></a>
+            <div class="navbar-form hidden-desktop">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#pixedModal">Get Pixed</button>
+                <button class="btn" data-toggle="modal" data-target="#sliceModal">Get Slices</button>
+            </div>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -52,19 +53,73 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
           </div><!--/.nav-collapse -->
+        <div class="navbar-form pull-right visible-desktop">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#pixedModal">Get Pixed for $10/year</button>
+            <button class="btn" data-toggle="modal" data-target="#sliceModal">Get Slices <strong>for free</strong></button>
+        </div>
         </div>
       </div>
     </div>
-    {%block precontent %}{% endblock %}
+    {% block precontent %}{% endblock %}
     <div class="container">
         {% block content %}{% endblock %}
     </div> <!-- /container -->
+    {% block postcontent %}{% endblock %}
+    {% block footer %}
+        <div class="hero-unit footer">
+            <div class="row">
+                <div class="span11">
+                    <p>Pixed is designed, written, and created by Devon Campbell. Although I make every effort to provide accurate and useful information, I cannot guarantee the information will work in every environment. I am not responsible for any damage or data loss.</p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block modals %}
+        <!-- Begin Slices Signup Form -->
+        <div class="modal hide fade" id="sliceModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Get Slices for free!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Stay on top of the best web sites for teachers</p>
+                <form <!--action="http://pixed.us6.list-manage2.com/subscribe/post?u=8c90f267855ba07f0a5ee028f&id=e1a0ac2898" method="post"--> id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div class="mc-field-group">
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="E-mail address"> <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe</button>
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--End Slices signup -->
+
+        <!-- Begin Pixed signup form -->
+        <div class="modal hide fade" id="pixedModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Get a year of Pixed for $10!</h3>
+            </div>
+            <div class="modal-body">
+                <p>26 issues directly to your inbox. Delivery begins January 4th, 2013.</p>
+                <form <!--action="http://pixed.us6.list-manage.com/subscribe/post?u=8c90f267855ba07f0a5ee028f&id=a46baaaf4e" method="post"--> id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div class="mc-field-group">
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="E-mail address"> <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Pixed signup -->
+    {% endblock %}
 
     <!-- Le javascript
     ================================================== -->

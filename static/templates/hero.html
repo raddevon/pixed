@@ -1,27 +1,83 @@
 {% extends 'base.html' %}
+{% block precontent %}
+<div class="hero-unit logo hidden-phone">
+    <div class="row">
+        <div class="span5 cta tj">
+            <p>Pixed is your pixel education delivered! I wrap up great tips for integrating technology into your classroom and beam them directly to your inbox for only <strong>$10 per year</strong>. If you're not sure, check out the <strong>free Slices newsletter</strong>. <a href="#whatDoIGet">Learn more</a> or sign up right away. <a href="#charity">10% of my proceeds go to charity</a>.</p>
+            <button class="btn btn-primary btn-large" data-toggle="modal" data-target="#pixedModal">Get Pixed for $10/year</button><br />
+            <button class="btn btn-large" data-toggle="modal" data-target="#sliceModal">Subscribe to Slices for free</button>
+        </div>
+        <div class="span5">
+            <img src="/static/img/logo.png" alt="Pixed: Your pixel education delivered!" class="flexible" />
+        </div>
+    </div>
+</div>
+<div class="hero-unit logo visible-phone">
+    <div class="row">
+        <div class="span5">
+            <img src="/static/img/logo.png" alt="Pixed: Your pixel education delivered!" class="flexible" />
+        </div>
+        <div class="span5 cta tj">
+            <p>Pixed is your pixel education delivered! I wrap up great tips for integrating technology into your classroom and beam them directly to your inbox for only <strong>$10 per year</strong>. If you're not sure, check out the <strong>free Slices newsletter</strong>. <a href="#whatDoIGet">Learn more</a> or sign up right away. <a href="#charity">10% of my proceeds go to charity</a>.</p>
+            <button class="btn btn-primary btn-large" data-toggle="modal" data-target="#pixedModal">Get Pixed for $10/year</button><br />
+            <button class="btn btn-large" data-toggle="modal" data-target="#sliceModal">Subscribe to Slices for free</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
+<!-- Example row of columns -->
+<div class="row features">
+    <div class="span4 tj">
+        <h2>Utilize</h2>
+        <img src="/static/img/utilize.png" alt="Utilize your technology" class="flexible"/>
+        <p>Sure, your resources are limited, but your possibilities don't have to be. I'll show you innovative ways to squeeze more out of your school's computers using inexpensive (often free) software and clever techniques.</p>
+    </div>
+    <div class="span4 tj">
+        <h2>Inspire</h2>
+        <img src="/static/img/inspire.png" alt="Inspire your students" class="flexible"/>
+        <p>Kids are enthusiastic about technology. You'll find it's easier to get reach them by mixing technology into the curriculum. Better engage them and watch them succeed.</p>
+    </div>
+    <div class="span4 tj">
+        <h2>Automate</h2>
+        <img src="/static/img/automate.png" alt="Automate your digital life" class="flexible"/>
+        <p>Teachers are saddled with many repetitive tasks which can be made easier with the many tools we have available today including computers, smartphones, and tablets. Learn ways to let technology help so you can focus on the material!</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block postcontent %}
 <div class="hero-unit">
-    <h1>Hello, world!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="span5 tj">
+            <h1 id="whatDoIGet" class="anchor">What do I get?</h1>
+            <p>Subscribe and you'll receive an issue of Pixed every other week for a full year. That's 26 issues each with a great article to help you better integrate your technology into the classroom and your life as an educator. You'll also be doing good: 10% of the proceeds from your payment will be donated to a charity.</p>
+            <p>Pixed articles have practical information and tips which are immediately useful to most educators. Take a look at these previous topics.</p>
+            <ul>
+                <li>Bringing YouTube videos into the classroom &mdash; an invaluable skill for those of you behind a web content filter</li>
+                <li>Backing up hard-to-find files like your iTunes library, browser bookmarks, and Outlook e-mail</li>
+                <li>Simple troubleshooting steps for fixing video problems on your classroom computers</li>
+                <li>Using an iPad in the classroom along with leads on grants for getting an iPad or a whole set of iPads</li>
+            </ul>
+        </div>
+        <div class="span5">
+            <img src="/static/img/logo.png" alt="Pixed: Your pixel education delivered!" class="flexible" />
+        </div>
+    </div>
 </div>
 
-<!-- Example row of columns -->
-<div class="row">
-    <div class="span4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div>
-    <div class="span4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div>
-    <div class="span4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
+<div class="container">
+    <div class="row">
+        <div class="span5 tj">
+            <h1 id="charity" class="anchor">Charity</h1>
+            <p>Every year, I will select a charity to receive <strong>10% of the proceeds from Pixed subscriptions</strong>. My first selection is a very personal one.</p>
+            <p>My wife of four years was diagnosed with multiple sclerosis before she and I met. She's been living with the disease for over seven years now. Although she's doing well, MS has put her life and the range of experiences available to her in a box. At the moment, the box is pretty large, but it's limiting nonetheless.</p>
+            <p>I chose to support the <strong><a href="http://www.nationalmssociety.org/index.aspx" target=_new>National Multiple Sclerosis Society</a></strong> in hopes they will be able to continue to make the lives of my wife and other sufferers as full and unimpeded as possible. Perhaps someday, the disease can be eradicated so that victims can come out of their boxes and do all the things they couldn't before.</p>
+        </div>
+        <div class="span5">
+            <img src="/static/img/mssociety.png" alt="National MS Society" class="flexible shadowAbove anchor" />
+        </div>
     </div>
 </div>
 {% endblock %}

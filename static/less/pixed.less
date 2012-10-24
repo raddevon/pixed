@@ -1,0 +1,101 @@
+// Call to action custom styles
+.cta {
+  margin-top: 50px;
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: @baseFontSize + 4px;
+  }
+}
+
+// Custom button styling
+.btn {
+  vertical-align: top !important;
+  .border-radius(0px);
+}
+
+// Text alignment
+.tl { text-align: left; }
+.tr { text-align: right; }
+.tc { text-align: center; }
+.tb { text-align: block; }
+.tj { text-align: justify; }
+
+// Flexible image sizing
+img.flexible { max-width: 100%; }
+
+// Feature image margin
+.features img { margin-bottom: 10px;}
+
+// Primary button text color
+.btn-primary { color: @black; }
+
+// Restyled modals
+.modal {
+  .border-radius(0px);
+  background-color: @appleFlesh;
+}
+
+// Hero unit text styling
+.hero-text {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: @baseLineHeight * 1.5;
+  color: @heroUnitLeadColor;
+}
+
+// Top hero unit styling
+.hero-unit {
+  &.logo {
+    margin-top: -20px;
+    img {
+      margin: 0 0 20px 60px;
+    }
+  }
+  &.footer {
+    margin-bottom: -20px;
+    padding-bottom: 20px;
+    color: @grayLight;
+    p {
+      font-size: @baseFontSize * 0.9;
+      line-height: 1.2;
+    }
+
+  }
+  li { .hero-text; }
+  p { .hero-text; }
+  // Reduce hero unit padding for smaller screens
+  @media (min-width: 768px) and (max-width: 979px) { padding-left: 60px; padding-right: 60px; }
+  @media (max-width: 767px) { padding-left: 40px; padding-right: 40px; }
+  @media (max-width: 480px) { padding-left: 20px; padding-right: 20px; }
+}
+
+// Spacing between navbar branding images
+.navbar {
+  .brand {
+    padding: 0;
+    img + img {
+      margin: 2px 8px 0 3px;
+    }
+  }
+}
+
+// Change link color for readability when inside the green container
+.container {
+  a {
+    color: @gray;
+    text-decoration: none;
+  }
+  a:hover {
+    color: darken(@gray, 15%);
+    text-decoration: underline;
+  }
+  padding-bottom: 20px;
+  &:first-of-type { padding-bottom: 0; }
+}
+
+// Give some breathing room to images below a shadowed element
+img.shadowAbove { margin-top: 20px;}
+
+// Padding for anchors
+.anchor { padding-top: 30px; }
