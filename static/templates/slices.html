@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block precontent %}
+<div class="hero-unit logo hidden-phone">
+    <div class="row">
+        <div class="span5 cta tj">
+            <h1>Want Slices?</h1>
+            <p>Each Slice contains a juicy piece of the web ready for you to enjoy. We choose only the highest quality sites for featuring in Slices, and we give you extra information like how best to utilize the site. Each issue also contains a taste of that week's Pixed article.</p>
+        </div>
+        <div class="span5">
+            <img src="/static/img/sliceslogo.png" alt="Slices: The best of the web for education!" class="flexible anchor" />
+        </div>
+    </div>
+</div>
+<div class="hero-unit logo visible-phone">
+    <div class="row">
+        <div class="span5">
+            <img src="/static/img/sliceslogo.png" alt="Slices: The best of the web for education!" class="flexible anchor" />
+        </div>
+        <div class="span5 cta tj">
+            <h1>Want Slices?</h1>
+            <p>Each Slice contains a juicy piece of the web ready for you to enjoy. We choose only the highest quality sites for featuring in Slices, and we give you extra information like how best to utilize the site. Each issue also contains a taste of that week's Pixed article.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <h3>Get Slices for free!</h3>
+    <p>Stay on top of the best web sites for teachers</p>
+    <form action="http://pixed.us6.list-manage2.com/subscribe/post?u=8c90f267855ba07f0a5ee028f&id=e1a0ac2898" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="mc-field-group">
+            <label for="mce-EMAIL" class="hidden">E-mail address</label><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="E-mail address"> <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe</button>
+        </div>
+
+        <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+    </form>
+{% endblock %}

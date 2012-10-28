@@ -76,59 +76,6 @@
         </div>
     {% endblock %}
 
-    {% block modals %}
-        <!-- Begin Slices Signup Form -->
-        <div class="modal hide fade" id="sliceModal">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3>Get Slices for free!</h3>
-            </div>
-            <div class="modal-body">
-                <p>Stay on top of the best web sites for teachers</p>
-                <form action="http://pixed.us6.list-manage2.com/subscribe/post?u=8c90f267855ba07f0a5ee028f&id=e1a0ac2898" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div class="mc-field-group">
-                        <label for="mce-EMAIL" style="visibility: hidden;">E-mail address</label><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="E-mail address"> <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe</button>
-                    </div>
-
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--End Slices signup -->
-
-        <!-- Begin Pixed signup form -->
-        <div class="modal hide fade" id="pixedModal">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3>Get a year of Pixed for $10!</h3>
-            </div>
-            <div class="modal-body">
-                <p>26 issues directly to your inbox. Delivery begins January 4th, 2013.</p>
-                <form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post">
-                    <input type="hidden" name="returnUrl" value="http://www.pixed.us/success" >
-                    <input type="hidden" name="processImmediate" value="0" >
-                    <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-                    <input type="hidden" name="signatureMethod" value="HmacSHA256" >
-                    <input type="hidden" name="collectShippingAddress" value="0" >
-                    <input type="hidden" name="amazonPaymentsAccountId" value="XEBFVYVOFIQH12FXM3MTDDR8E3T7BDAH8JNLZH" >
-                    <input type="hidden" name="recurringStartDate" value="1357355586" >
-                    <input type="hidden" name="cobrandingStyle" value="logo" >
-                    <input type="hidden" name="immediateReturn" value="1" >
-                    <input type="hidden" name="amount" value="USD 10" >
-                    <input type="hidden" name="recurringFrequency" value="1 year" >
-                    <input type="hidden" name="description" value="Pixed subscription sandbox" >
-                    <input type="hidden" name="signatureVersion" value="2" >
-                    <input type="hidden" name="signature" value="mBpECB51IVhSx7wwuFVqiDNsDfp1/oWiSzEqO3MLVNk=" >
-                    <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_subscribe_withlogo_lightbg.gif" border="0">
-                </form>
-            </div>
-        </div>
-        <!-- End Pixed signup -->
-    {% endblock %}
-
     {% block scripts %}
     <!-- Le javascript
    ================================================== -->
