@@ -1,7 +1,7 @@
 import urllib
 import urllib2
 import pprint
-import simplejson
+from lib import simplejson
 from utils import flatten
 _debug = 1
 
