@@ -53,7 +53,7 @@ img.flexible { max-width: 100%; }
     }
   }
   &.footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     box-sizing: border-box;
     width: 100%;
@@ -93,6 +93,13 @@ img.flexible { max-width: 100%; }
   a:hover {
     color: darken(@gray, 15%);
     text-decoration: underline;
+  }
+  a.btn {
+    &:hover { text-decoration: none; }
+  }
+  a.btn-primary {
+    color: @black;
+    &:hover { color: @white; }
   }
   padding-bottom: 20px;
   &:first-of-type { padding-bottom: 0; }
