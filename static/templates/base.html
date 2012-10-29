@@ -30,33 +30,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><img src="/static/img/apple.png" /><img src="/static/img/pixed.png" alt="Pixed"/></a>
+          <a class="brand" href="/"><img src="/static/img/apple.png" /><img src="/static/img/pixed.png" alt="Pixed"/></a>
             <div class="navbar-form hidden-desktop">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#pixedModal">Get Pixed</button>
-                <button class="btn" data-toggle="modal" data-target="#sliceModal">Get Slices</button>
+                <a class="btn btn-primary" href="/pixed/">Get Pixed</a>
+                <a class="btn" href="/slices/">Get Slices</a>
             </div>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+              <li id="homeNav"><a href="/">Home</a></li>
+              <li id="helpNav"><a href="/help/">Help</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         <div class="navbar-form pull-right visible-desktop">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#pixedModal">Get Pixed for $10/year</button>
-            <button class="btn" data-toggle="modal" data-target="#sliceModal">Get Slices <strong>for free</strong></button>
+            <a class="btn btn-primary" href="/pixed/">Get Pixed for $10/year</a>
+            <a class="btn" href="/slices/">Get Slices <strong>for free</strong></a>
         </div>
         </div>
       </div>
@@ -81,19 +68,12 @@
    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/bootstrap-transition.js"></script>
-    <script src="/static/js/bootstrap-alert.js"></script>
-    <script src="/static/js/bootstrap-modal.js"></script>
-    <script src="/static/js/bootstrap-dropdown.js"></script>
-    <script src="/static/js/bootstrap-scrollspy.js"></script>
-    <script src="/static/js/bootstrap-tab.js"></script>
-    <script src="/static/js/bootstrap-tooltip.js"></script>
-    <script src="/static/js/bootstrap-popover.js"></script>
-    <script src="/static/js/bootstrap-button.js"></script>
-    <script src="/static/js/bootstrap-collapse.js"></script>
-    <script src="/static/js/bootstrap-carousel.js"></script>
-    <script src="/static/js/bootstrap-typeahead.js"></script>
     <script src="/static/js/retina.js"></script>
+    <script type="text/javascript">
+        function setActive(currentActive) {
+            $(currentActive).addClass("active")
+        }
+    </script>
     {% endblock %}
   </body>
 </html>
