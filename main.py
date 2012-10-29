@@ -25,12 +25,18 @@ class SlicesHandler(Handler):
     def get(self):
         self.render('slices.html')
 
+class HelpHandler(Handler):
+    def get(self):
+        self.render('help.html')
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     webapp2.Route('/pixed', webapp2.RedirectHandler,defaults={'_uri': '/pixed/'}),
     ('/pixed/', PixedHandler),
     webapp2.Route('/slices', webapp2.RedirectHandler,defaults={'_uri': '/slices/'}),
-    ('/slices/', SlicesHandler)
+    ('/slices/', SlicesHandler),
+    webapp2.Route('/help', webapp2.RedirectHandler,defaults={'_uri': '/help/'}),
+    ('/help/', HelpHandler)
 
 ], debug=True)
 
