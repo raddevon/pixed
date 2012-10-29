@@ -27,7 +27,9 @@ class SlicesHandler(Handler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    webapp2.Route('/pixed', webapp2.RedirectHandler,defaults={'_uri': '/pixed/'}),
     ('/pixed/', PixedHandler),
+    webapp2.Route('/slices', webapp2.RedirectHandler,defaults={'_uri': '/slices/'}),
     ('/slices/', SlicesHandler)
 
 ], debug=True)
