@@ -13,6 +13,11 @@ handlers:
   static_dir: static/js
 - url: /static/less
   static_dir: static/less
+- url: /static/xml
+  static_dir: static/xml
+- url: /sitemap.xml
+  static_files: static/xml/sitemap.xml
+  upload: static/xml/sitemap.xml
 - url: /.*
   script: main.app
 
