@@ -85,7 +85,17 @@
             <p>Like what you see? If you have friends who might benefit from Pixed, or if you'd just like to shout your love for it from the rooftops, please consider telling your friends. We have provided sharing buttons for some of the most popular social networks.</p>
         </div>
         <div class="span5 social">
-            <img src="/static/img/pinterest.png" alt="Share to Pinterest" /><img src="/static/img/facebook.png" alt="Share to Facebook" /><img src="/static/img/twitter.png" alt="Share to Twitter" /><img src="/static/img/google.png" alt="Share to Google Plus" />
+            <!-- Pinterest sharing icon -->
+            <a href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'><img src="/static/img/pinterest.png" alt="Share to Pinterest" /></a>
+
+            <!-- Facebook sharing icon -->
+            <a rel="nofollow" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fwww.pixed.us&t=Pixed%20helps%20teachers%20get%20the%20most%20out%20out%20of%20their%20classroom%20tech." target="_blank"><img src="/static/img/facebook.png" alt="Share to Facebook" /></a>
+
+            <!-- Twitter sharing icon -->
+            <a href="https://twitter.com/share?url=https%3A%2F%2Fwww.pixed.us%2F&text=%40pixedus%20helps%20teachers%20get%20the%20most%20out%20out%20of%20their%20classroom%20tech." target="_blank"><img src="/static/img/twitter.png" alt="Share to Twitter" /></a>
+
+            <!-- Google Plus sharing icon -->
+            <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.pixed.us" target=_blank><img src="/static/img/google.png" alt="Share to Google Plus" /></a>
         </div>
     </div>
 </div>
@@ -93,6 +103,7 @@
 
 {% block scripts %}
     {{ super() }}
+    <!-- Marks correct nav tab active -->
     <script type="text/javascript">
         document.onload(setActive('#homeNav'))
     </script>
