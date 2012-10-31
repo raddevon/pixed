@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block precontent %}
+<div class="hero-unit logo">
+    <div class="row">
+        <div class="span5 cta tj">
+            <h1>Contact me</h1>
+            <p>If you can't find an answer on the help page (or if the help page sent you here), send me a note. Use this to send me a tip for Slices, a pitch for Pixed, to ask a question, or to discuss advertising opportunities.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="span5">
+    <form action="/contact/" method="post">
+        <div class="control-group">
+            <label for="inputName" class="hidden">Name</label>
+            <input type="text" name="name" class="span3 offset2" id="inputName" placeholder="Name (optional)"{% if errors %} value="{{ name }}" {% endif %} />
+        </div>
+        <div class="control-group{%if email_error %} error{% endif %}">
+            <label for="inputEmail" class="hidden">E-mail</label>
+            <input type="text" name="email" class="span3 offset2" id="inputEmail" placeholder="E-mail address"{% if errors %} value="{{ email }}"{% endif %} />
+            {% if email_error %}<span class="help-inline">Your e-mail address is invalid.</span>{% endif %}
+        </div>
+        <div class="control-group{%if message_error %} error{% endif %}">
+            <label for="inputMessage" class="hidden">Message</label>
+            <textarea name="message" cols ="40" rows="8" class="span5" id="inputMessage" placeholder="Message">{% if errors %}{{ message }}{% endif %}</textarea>
+            {% if message_error %}<span class="help-inline">Your message is too short.</span>{% endif %}
+        </div>
+        <input type="submit" class="btn btn-inverse btn-large span3" value="Send" />
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+    document.onload(setActive('#contactNav'))
+</script>
+{% endblock %}
