@@ -56,7 +56,7 @@ class ContactHandler(Handler):
         else:
             if not name:
                 name = "Name not provided"
-            mail.send_mail('raddevon@gmail.com', 'devon@pixed.us', '%s contact form' % email, "%s/n%s/n%s" % (name, email, message))
+            mail.send_mail('raddevon@gmail.com', 'devon@pixed.us', '%s contact form' % email, "%s\n%s\n%s" % (name, email, message))
             self.render('contactsuccess.html')
 
 
