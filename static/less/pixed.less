@@ -1,6 +1,7 @@
 // Call to action custom styles
 .cta {
   margin-top: 50px;
+  @media (max-width: 768px) { margin-top: 0;}
   .btn {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -26,7 +27,7 @@
 .tj { text-align: justify; }
 
 // Flexible image sizing
-img.flexible { max-width: 100%; }
+img.flexible { max-width: 90%; }
 
 // Feature image margin
 .features img { margin-bottom: 10px;}
@@ -50,6 +51,8 @@ img.flexible { max-width: 100%; }
 
 // Top hero unit styling
 .hero-unit {
+  margin: 0 -20px 20px -20px;
+
   &.logo {
     margin-top: -20px;
     img {
@@ -66,7 +69,6 @@ img.flexible { max-width: 100%; }
     position: relative;
     bottom: 0;
     box-sizing: border-box;
-    width: 100%;
     margin-bottom: -20px;
     padding-bottom: 20px;
     color: @grayLight;
@@ -78,6 +80,7 @@ img.flexible { max-width: 100%; }
   }
   li { .hero-text; }
   p { .hero-text; }
+  h1, h2, h3, h4, h5, h6 { margin-bottom: 5px; }
   // Reduce hero unit padding for smaller screens
   @media (min-width: 768px) and (max-width: 979px) { padding-left: 60px; padding-right: 60px; }
   @media (max-width: 767px) { padding-left: 40px; padding-right: 40px; }
@@ -148,3 +151,7 @@ img.shadowAbove { margin-top: 20px;}
   right: -2px;
   top: -2px;
 }
+
+// Spacing fixes for images in phone version
+.visible-phone img.anchor { padding-top: 0; }
+.social.visible-phone img { margin-top: 0; }
