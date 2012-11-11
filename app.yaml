@@ -15,6 +15,9 @@ handlers:
   static_dir: static/less
 - url: /static/xml
   static_dir: static/xml
+- url: /pinterest-1fbba.html
+  static_files: static/misc/pinterest-1fbba.html
+  upload: static/misc/pinterest-1fbba.html
 - url: /sitemap.xml
   static_files: static/xml/sitemap.xml
   upload: static/xml/sitemap.xml
