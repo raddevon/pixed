@@ -5,6 +5,8 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /static/downloads
+  static_dir: static/downloads
 - url: /static/ico
   static_dir: static/ico
 - url: /static/img
