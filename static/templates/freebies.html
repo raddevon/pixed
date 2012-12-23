@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Pixed: Freebies{% endblock %}
+
+{% block precontent %}
+<div class="hero-unit logo hidden-phone">
+    <div class="row">
+        <div class="span5 cta tj">
+            <h1>Free from Pixed</h1>
+            <p>Free resources from Pixed help you make your classroom more tech-friendly.</p>
+        </div>
+        <div class="span5">
+            <img src="/static/img/logo.png" alt="Pixed: Your pixel education delivered!" class="flexible" />
+        </div>
+    </div>
+</div>
+<div class="hero-unit logo visible-phone">
+    <div class="row">
+        <div class="span5">
+            <img src="/static/img/logo.png" alt="Pixed: Your pixel education delivered!" class="flexible" />
+        </div>
+        <div class="span5 cta tj">
+            <h1>Free from Pixed</h1>
+            <p>Free resources from Pixed help you make your classroom more tech-friendly.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span5">
+        <h1 id="TeacherToolkit" class="anchor">Pixed Teacher Toolkit</h1>
+        <div class="tj">
+            <p>The Pixed Teacher Toolkit provides product recommendations for educators looking to maximize technology in the classroom. In addition to helping you decide what to buy in many categories like desktops, laptops, tablets, and printers, the Teacher Toolkit also recommends some great software and indispensable Internet services to streamline the classroom. It's the perfect starter kit for the <a href="/pixed/">Pixed newsletter</a>!</p>
+            <p>I've filled the Teacher Toolkit with personal recommendations of items that have made the biggest impact in my district plus recommendations for teachers with additional needs outside what we have encountered.</p>
+        </div>
+    </div>
+    <div class="span5 hidden-phone">
+        <img src="/static/img/toolkit-tease.jpg" class="tease"/>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+    document.onload(setActive('#freebiesNav'))
+</script>
+{% endblock %}
