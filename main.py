@@ -60,6 +60,10 @@ class ContactHandler(Handler):
             self.render('contactsuccess.html')
 
 
+class FreebiesHandler(Handler):
+    def get(self):
+        self.render('freebies.html')
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
@@ -70,6 +74,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/help', webapp2.RedirectHandler,defaults={'_uri': '/help/'}),
     ('/help/', HelpHandler),
     webapp2.Route('/contact', webapp2.RedirectHandler,defaults={'_uri': '/contact/'}),
-    ('/contact/', ContactHandler)
+    ('/contact/', ContactHandler),
+    webapp2.Route('/freebies', webapp2.RedirectHandler,defaults={'_uri': '/freebies/'}),
+    ('/freebies/', FreebiesHandler)
 
 ], debug=True)
