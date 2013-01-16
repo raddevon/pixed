@@ -7,6 +7,8 @@ jinja_env = jinja2.Environment(
 
 RE_EMAIL = re.compile(r'^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$', re.IGNORECASE)
 
+next_issue = u"If you can get parents involved in your students' education, <a href=\"http://www.centerforpubliceducation.org/Main-Menu/Public-education/Parent-Involvement/Parent-Involvement.html\">student performance will improve</a>. In the next issue, I'll discuss ways you can use technology to help you do just that. Subscribe before <b>7am Eastern on Friday, January 18th 2013</b> to start your subscription with this issue!"
+
 def valid_email(email):
     return RE_EMAIL.match(email)
 
@@ -24,11 +26,11 @@ class Handler(webapp2.RequestHandler):
 
 class MainHandler(Handler):
     def get(self):
-        self.render('hero.html')
+        self.render('hero.html', next_issue=next_issue)
 
 class PixedHandler(Handler):
     def get(self):
-        self.render('pixed.html')
+        self.render('pixed.html', next_issue=next_issue)
 
 class SlicesHandler(Handler):
     def get(self):
