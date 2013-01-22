@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 import webapp2, jinja2, re
 import os
 from google.appengine.api import mail
@@ -7,7 +8,7 @@ jinja_env = jinja2.Environment(
 
 RE_EMAIL = re.compile(r'^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$', re.IGNORECASE)
 
-next_issue = u"If you can get parents involved in your students' education, <a href=\"http://www.centerforpubliceducation.org/Main-Menu/Public-education/Parent-Involvement/Parent-Involvement.html\">student performance will improve</a>. In the next issue, I'll discuss ways you can use technology to help you do just that. Subscribe before <b>7am Eastern on Friday, January 18th 2013</b> to start your subscription with this issue!"
+next_issue = u"We touched on podcasting in the parent engagement issue, but the subject is deep enough to fill its own issue — two, in fact! In this first installment, we cover how to record the podcast. Subscribe before <b>7am Eastern on Friday, February 1st, 2013</b>, to start your subscription with this issue!"
 
 def valid_email(email):
     return RE_EMAIL.match(email)
