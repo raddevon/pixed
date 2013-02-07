@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
-import webapp2, jinja2, re
-import os
+import webapp2, jinja2, re, os
 from google.appengine.api import mail
+from google.appengine.ext import db
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'static/templates')))
@@ -10,11 +10,19 @@ RE_EMAIL = re.compile(r'^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$', re.IGNORECASE
 
 next_issue = u"In the previous issue, I showed you how to record your podcast. Next issue, I'll show you how to get it online in podcast form. Subscribe before <b>7am Eastern on Friday, February 15th, 2013</b>, to start your subscription with this issue! (Psst. Subscribe this week and send me a message using the <a href=\"/contact/\">contact form</a>, and I'll catch you up by sending you a free copy of the podcast recording issue!)"
 
+class PixedPreview(db.Model):
+    date = db.DateProperty(required=True)
+    content = db.TextProperty(required=True)
+
 def valid_email(email):
     return RE_EMAIL.match(email)
 
 def valid_message(message):
     return len(message) > 5
+
+def fetch_pixed_preview():
+    # todo-devon Write this fetching function with caching
+    pass
 
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
@@ -41,7 +49,6 @@ class HelpHandler(Handler):
     def get(self):
         self.render('help.html')
 
-
 class ContactHandler(Handler):
     def get(self):
         self.render('contact.html')
@@ -61,7 +68,6 @@ class ContactHandler(Handler):
                 name = "Name not provided"
             mail.send_mail('raddevon@gmail.com', 'devon@pixed.us', '%s contact form' % email, "%s\n%s\n%s" % (name, email, message))
             self.render('contactsuccess.html')
-
 
 class FreebiesHandler(Handler):
     def get(self):
