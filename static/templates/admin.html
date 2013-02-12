@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/less/zebra_datepicker.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/less/markitup/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/less/markitup/set_style.css" />
+{% endblock %}
+
+{% block title %}Pixed: Admin{% endblock %}
+New Pixed preview
+<form>
+    <label for="preview_date_field">Date</label>
+    <input type="text" id="preview_date_field" name="preview_date_field" />
+    <label for="preview_content_field">Content</label>
+    <
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="/static/js/zebra_datepicker.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.markitup.js"></script>
+    <script type="text/javascript">
+        mySettings = {
+            onShiftEnter:  	{keepDefault:false, replaceWith:'<br />\n'},
+            onCtrlEnter:  	{keepDefault:false, openWith:'\n<p>', closeWith:'</p>'},
+            onTab:    		{keepDefault:false, replaceWith:'    '},
+            markupSet:  [
+                {name:'Bold', key:'B', openWith:'(!(<strong>|!|<b>)!)', closeWith:'(!(</strong>|!|</b>)!)' },
+                {name:'Italic', key:'I', openWith:'(!(<em>|!|<i>)!)', closeWith:'(!(</em>|!|</i>)!)'  },
+                {name:'Stroke through', key:'S', openWith:'<del>', closeWith:'</del>' },
+                {separator:'---------------' },
+                {name:'Link', key:'L', openWith:'<a href="[![Link:!:http://]!]"(!( title="[![Title]!]")!)>', closeWith:'</a>', placeHolder:'Your text to link...' },
+                {separator:'---------------' },
+                {name:'Clean', className:'clean', replaceWith:function(markitup) { return markitup.selection.replace(/<(.*?)>/g, "") } },
+                {name:'Preview', className:'preview',  call:'preview'}
+            ]
+        }
+    </script>
+{% endblock %}
