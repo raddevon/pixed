@@ -1,10 +1,33 @@
 # -*- coding: utf8 -*-
-import webapp2, jinja2, re, os
+
+import sys
+
+# inject './lib' dir in the path so that we can simply do "import ndb"
+# or whatever there's in the app lib dir.
+if 'lib' not in sys.path:
+    sys.path[0:0] = ['lib']
+
+import webapp2, re, os, users
 from google.appengine.api import mail
 from google.appengine.ext import db
+from users import BaseRequestHandler
+from secrets import SESSION_KEY
 
-jinja_env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'static/templates')))
+current_path = os.path.abspath(os.path.dirname(__file__))
+
+# webapp2 config
+app_config = {
+    'webapp2_extras.sessions': {
+        'cookie_name': '_simpleauth_sess',
+        'secret_key': SESSION_KEY
+    },
+    'webapp2_extras.auth': {
+        'user_attributes': []
+    },
+    'webapp2_extras.jinja2': {
+        'template_path': os.path.join(current_path, 'static/templates')
+    }
+}
 
 RE_EMAIL = re.compile(r'^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$', re.IGNORECASE)
 
@@ -24,32 +47,23 @@ def fetch_pixed_preview():
     # todo-devon Write this fetching function with caching
     pass
 
-class Handler(webapp2.RequestHandler):
-    def write(self, *a, **kw):
-        self.response.out.write(*a, **kw)
-    def render_str(self, template, *a, **kw):
-        t = jinja_env.get_template(template)
-        return t.render(*a, **kw)
-    def render(self, template, *a, **kw):
-        self.write(self.render_str(template, *a, **kw))
-
-class MainHandler(Handler):
+class MainHandler(BaseRequestHandler):
     def get(self):
-        self.render('hero.html', next_issue=next_issue)
+        self.render('hero.html', {'next_issue': next_issue})
 
-class PixedHandler(Handler):
+class PixedHandler(BaseRequestHandler):
     def get(self):
-        self.render('pixed.html', next_issue=next_issue)
+        self.render('pixed.html', {'next_issue': next_issue})
 
-class SlicesHandler(Handler):
+class SlicesHandler(BaseRequestHandler):
     def get(self):
         self.render('slices.html')
 
-class HelpHandler(Handler):
+class HelpHandler(BaseRequestHandler):
     def get(self):
         self.render('help.html')
 
-class ContactHandler(Handler):
+class ContactHandler(BaseRequestHandler):
     def get(self):
         self.render('contact.html')
     def post(self):
@@ -69,7 +83,7 @@ class ContactHandler(Handler):
             mail.send_mail('raddevon@gmail.com', 'devon@pixed.us', '%s contact form' % email, "%s\n%s\n%s" % (name, email, message))
             self.render('contactsuccess.html')
 
-class FreebiesHandler(Handler):
+class FreebiesHandler(BaseRequestHandler):
     def get(self):
         self.render('freebies.html')
 
@@ -85,6 +99,11 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/contact', webapp2.RedirectHandler,defaults={'_uri': '/contact/'}),
     ('/contact/', ContactHandler),
     webapp2.Route('/freebies', webapp2.RedirectHandler,defaults={'_uri': '/freebies/'}),
-    ('/freebies/', FreebiesHandler)
+    ('/freebies/', FreebiesHandler),
+    webapp2.Route('/login/', webapp2.RedirectHandler,defaults={'_uri': '/auth/google/'}),
+    webapp2.Route('/logout/', handler='users.AuthHandler:logout', name='logout'),
+    webapp2.Route('/auth/<provider>/', handler='users.AuthHandler:_simple_auth', name='auth_login'),
+    webapp2.Route('/auth/<provider>/callback/', handler='users.AuthHandler:_auth_callback', name='auth_callback')
+    webapp2.Route('/admin/', handler='admin.AdminHandler')
 
-], debug=True)
+],config=app_config, debug=True)
