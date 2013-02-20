@@ -38,6 +38,7 @@
               <li id="freebiesNav"><a href="/freebies/">Freebies</a></li>
               <li id="helpNav"><a href="/help/">Help</a></li>
               <li id="contactNav"><a href="/contact/">Contact</a></li>
+              <li id="sampleNav"><a href="http://us6.campaign-archive2.com/?u=8c90f267855ba07f0a5ee028f&id=c555c9f10d" target=_blank class="openInWindow">Sample Issue</a><span class="label label-success">New!</span></li>
             </ul>
           </div><!--/.nav-collapse -->
         <div class="navbar-form pull-right visible-desktop">
@@ -86,6 +87,12 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
+
+        // Opens in new sized window if JavaScript is enabled
+        $('.openInWindow').click(function(evt) {
+            window.open($(this).attr('href'), 'PixedPreview', 'width=650,menubar=no,toolbar=no,location=no,personalbar=no,status=no');
+            evt.preventDefault();
+        });
     </script>
     {% endblock %}
   </body>
