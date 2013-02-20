@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'forms.html' as forms %}
 {% block head %}
     {{ super() }}
     <link rel="stylesheet" href="/static/less/zebra_datepicker.css" type="text/css">
@@ -7,13 +8,9 @@
 {% endblock %}
 
 {% block title %}Pixed: Admin{% endblock %}
-New Pixed preview
-<form>
-    <label for="preview_date_field">Date</label>
-    <input type="text" id="preview_date_field" name="preview_date_field" />
-    <label for="preview_content_field">Content</label>
-    <
-</form>
+{% for form in forms %}
+
+
 
 {% endblock %}
 
