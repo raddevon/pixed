@@ -4,6 +4,30 @@ from webapp2_extras import auth, sessions, jinja2
 from jinja2.runtime import TemplateNotFound
 from lib.simpleauth import SimpleAuthHandler
 
+def simpleauth_login_required(handler_method):
+    """A decorator to require that a user be logged in to access a handler.
+
+    To use it, decorate your get() method like this:
+
+
+        @simpleauth_login_required
+        def get(self):
+            user = self.current_user
+            self.response.out.write('Hello, ' + user.name())
+    """
+    def check_login(self, *args, **kwargs):
+        if self.request.method != 'GET':
+            self.abort(400, detail='The login_required decorator '
+                                   'can only be used for GET requests.')
+
+        if self.logged_in:
+            handler_method(self, *args, **kwargs)
+        else:
+            self.session['original_url'] = self.request.url.encode('ascii', 'ignore')
+            self.redirect('/login/')
+
+    return check_login
+
 class BaseRequestHandler(webapp2.RequestHandler):
   def dispatch(self):
     # Get a session store for this request.
@@ -174,8 +198,9 @@ class AuthHandler(BaseRequestHandler, SimpleAuthHandler):
     self.session.add_flash(data, 'data - from _on_signin(...)')
     self.session.add_flash(auth_info, 'auth_info - from _on_signin(...)')
 
-    # Go to the profile page
-    self.redirect('/profile')
+    # Go to the last page viewed
+    target = self.session['original_url']
+    self.redirect(target)
 
   def logout(self):
     self.auth.unset_session()
