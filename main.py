@@ -103,7 +103,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/login/', webapp2.RedirectHandler,defaults={'_uri': '/auth/google/'}),
     webapp2.Route('/logout/', handler='users.AuthHandler:logout', name='logout'),
     webapp2.Route('/auth/<provider>/', handler='users.AuthHandler:_simple_auth', name='auth_login'),
-    webapp2.Route('/auth/<provider>/callback/', handler='users.AuthHandler:_auth_callback', name='auth_callback')
+    webapp2.Route('/auth/<provider>/callback/', handler='users.AuthHandler:_auth_callback', name='auth_callback'),
     webapp2.Route('/admin/', handler='admin.AdminHandler')
 
 ],config=app_config, debug=True)
