@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% import 'forms.html' as forms %}
+{% import 'forms.html' as form_macros %}
 {% block head %}
     {{ super() }}
     <link rel="stylesheet" href="/static/less/zebra_datepicker.css" type="text/css">
@@ -8,10 +8,12 @@
 {% endblock %}
 
 {% block title %}Pixed: Admin{% endblock %}
-{% for form in forms %}
 
-
-
+{% block content %}
+    {% for form in forms %}
+        {{ form_macros.new_form(form) }}
+    {% endfor %}
+    {{ error }}
 {% endblock %}
 
 {% block scripts %}
