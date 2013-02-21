@@ -1,7 +1,7 @@
 {%- macro form_field_label(field) -%}
     <label for="{{ field.id }}">{{ field.label.text }}
     {%- if field.flags.required -%}
-        <abbr title="Diese Feld muss angegeben werden">*</abbr>
+        <abbr title="This field is required">*</abbr>:
     {%- endif %}</label>
 {% endmacro %}
 
@@ -32,7 +32,7 @@
 	</div>
 {%- endmacro -%}
 
-{%- macro action_buttons(submit_title, cancel_title="Zurück setzten", submit_class="primary") -%}
+{%- macro action_buttons(submit_title, cancel_title="Cancel", submit_class="primary") -%}
 <div class="actions">
 	<input type="submit" class="btn {{submit_class}}" value="{{submit_title}}">
 	&nbsp;
@@ -76,4 +76,11 @@
         {% endif %}
     {% endfor %}
   </fieldset>
+{%- endmacro -%}
+
+{%- macro new_form(form) -%}
+    <form method="post" action="/New{{ form.__class__.__name__[:-4] }}/">
+        {{ form_fields(form) }}
+        {{ action_buttons('Add') }}
+    </form>
 {%- endmacro -%}
