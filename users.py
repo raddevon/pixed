@@ -199,7 +199,7 @@ class AuthHandler(BaseRequestHandler, SimpleAuthHandler):
     self.session.add_flash(auth_info, 'auth_info - from _on_signin(...)')
 
     # Go to the last page viewed
-    target = self.session['original_url']
+    target = str(self.session['original_url'])
     self.redirect(target)
 
   def logout(self):
