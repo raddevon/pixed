@@ -2,8 +2,8 @@
 SESSION_KEY = '' # Enter a long random string for the session key. http://clsc.net/tools-old/random-string-generator.php
 
 # Google APIs. Get your ID and secret from the Google API Console @ https://code.google.com/apis/console/
-GOOGLE_APP_ID = ''
-GOOGLE_APP_SECRET = ''
+GOOGLE_APP_ID = '' # Enter your App ID.
+GOOGLE_APP_SECRET = '' # Enter your App Secret
 
 # config that summarizes the above
 AUTH_CONFIG = {
