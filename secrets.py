@@ -1,9 +1,9 @@
 # This is a session secret key used by webapp2 framework.
-SESSION_KEY = '' # Enter a long random string for the session key. http://clsc.net/tools-old/random-string-generator.php
+SESSION_KEY = "w2kc31cc7igh6mogt12034yu079r7d7xg0f8zar87184x236qz"
 
-# Google APIs. Get your ID and secret from the Google API Console @ https://code.google.com/apis/console/
-GOOGLE_APP_ID = ''
-GOOGLE_APP_SECRET = ''
+# Google APIs
+GOOGLE_APP_ID = '559497696228.apps.googleusercontent.com'
+GOOGLE_APP_SECRET = '7MSwO_pgFYTdHdbb8EBaVR45'
 
 # config that summarizes the above
 AUTH_CONFIG = {
