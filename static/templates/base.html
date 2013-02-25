@@ -67,7 +67,11 @@
     <!-- Le javascript
    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/js/jquery.js"></script>
+    {% if debug %}
+        <script src="/static/js/jquery.js"></script>
+    {% else %}
+        <script src="/static/js/jquery-1.8.2.js"></script>
+    {% endif %}
     <script src="/static/js/retina.js"></script>
     <script src="/static/js/bootstrap-collapse.js"></script>
     <script type="text/javascript">
