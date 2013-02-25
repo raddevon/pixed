@@ -36,5 +36,11 @@
                 {name:'Preview', className:'preview',  call:'preview'}
             ]
         }
+
+        $(document).ready(function() {
+            $('.datepicker').Zebra_DatePicker({ direction: 1 });
+            $(".wysiwyg").markItUp();
+        });
+
     </script>
 {% endblock %}
