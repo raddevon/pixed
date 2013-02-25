@@ -3,6 +3,8 @@ import webapp2, jinja2, re
 import os
 from google.appengine.api import mail
 
+debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'static/templates')))
 
@@ -81,4 +83,4 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/freebies', webapp2.RedirectHandler,defaults={'_uri': '/freebies/'}),
     ('/freebies/', FreebiesHandler)
 
-], debug=True)
+], debug=debug)
