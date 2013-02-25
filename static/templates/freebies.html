@@ -47,6 +47,6 @@
 {% block scripts %}
 {{ super() }}
 <script type="text/javascript">
-    window.onload(setActive('#freebiesNav'))
+    $(window).load(setActive('#freebiesNav'));
 </script>
 {% endblock %}

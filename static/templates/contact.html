@@ -38,6 +38,6 @@
 {% block scripts %}
 {{ super() }}
 <script type="text/javascript">
-    window.onload(setActive('#contactNav'))
+    $(window).load(setActive('#contactNav'));
 </script>
 {% endblock %}

@@ -119,6 +119,6 @@
 {% block scripts %}
 {{ super() }}
 <script type="text/javascript">
-    window.onload(setActive('#helpNav'))
+    $(window).load(setActive('#helpNav'));
 </script>
 {% endblock %}
