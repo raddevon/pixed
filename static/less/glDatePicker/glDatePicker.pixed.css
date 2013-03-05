@@ -1,0 +1,130 @@
+.gldp-pixed {
+	position: absolute;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Core style for every cell */
+.gldp-pixed .core {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+	float: left;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	color: #222;
+	background: #f0ffc4;
+}
+
+/* Cell border */
+.gldp-pixed .border {
+	border-style: none;
+	border-width: 0;
+	border-color: #fff;
+}
+
+/* Month/Year text and select */
+.gldp-pixed .monyear,
+.gldp-pixed .monyear select {
+	font-size: 16px !important;
+	font-weight: bold;
+	background: #eee;
+}
+
+/* Month/Year text */
+.gldp-pixed .monyear span {
+	margin: 0 5px 0 5px;
+}
+
+/* Prev/Next arrows */
+.gldp-pixed .prev-arrow,
+.gldp-pixed .next-arrow {
+	color: #666;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.gldp-pixed .prev-arrow:active,
+.gldp-pixed .next-arrow:active {
+	color: #000;
+}
+
+.gldp-pixed .prev-arrow-off,
+.gldp-pixed .next-arrow-off {
+	color: #000;
+	opacity: 0.15;
+}
+
+/* Days of the week */
+.gldp-pixed .dow {
+	color: #222;
+	font-weight: bold;
+	cursor: wait !important;
+	background: #eee;
+}
+
+/* Weekdays */
+.gldp-pixed .mon,
+.gldp-pixed .tue,
+.gldp-pixed .wed,
+.gldp-pixed .thu,
+.gldp-pixed .fri {
+	font-weight: bold;
+}
+
+/* Weekend days */
+.gldp-pixed .sat,
+.gldp-pixed .sun {
+	color: #888;
+	font-weight: bold;
+}
+
+/* Selectable days that are outside of current month being shown */
+.gldp-pixed .outday {
+	color: #aaa !important;
+}
+
+/* Hover */
+.gldp-pixed .mon:hover,
+.gldp-pixed .tue:hover,
+.gldp-pixed .wed:hover,
+.gldp-pixed .thu:hover,
+.gldp-pixed .fri:hover,
+.gldp-pixed .sat:hover,
+.gldp-pixed .sun:hover {
+	background: #c9ea76;
+}
+
+/* Non-Selectable days */
+.gldp-pixed .noday {
+	color: #bbb;
+	font-weight: normal;
+	cursor: wait !important;
+	background: #ddd;
+}
+
+/* Currently selected day */
+.gldp-pixed .selected {
+	color: #333;
+	font-weight: bold;
+	border-color: #888;
+	background: #a9ea0c;
+}
+
+/* Today */
+.gldp-pixed .today {
+	color: #fff;
+	font-weight: bold;
+	border-color: #000;
+	background: #4a4c49;
+}
+
+/* Special */
+.gldp-pixed .special {
+	color: #fff;
+	font-weight: bold;
+	border-color: #444;
+	background: #666;
+}
