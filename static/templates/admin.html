@@ -35,11 +35,11 @@
                 {name:'Clean', className:'clean', replaceWith:function(markitup) { return markitup.selection.replace(/<(.*?)>/g, "") } },
                 {name:'Preview', className:'preview',  call:'preview'}
             ]
-        }
+        };
 
         $(document).ready(function() {
-            $('.datepicker').Zebra_DatePicker({ direction: 1 });
-            $(".wysiwyg").markItUp();
+            $('.datepicker').Zebra_DatePicker({ direction: 1, offset: [5, 50] });
+            $(".editor").markItUp(mySettings);
         });
 
     </script>

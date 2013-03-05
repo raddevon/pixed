@@ -79,6 +79,7 @@
 {%- endmacro -%}
 
 {%- macro new_form(form) -%}
+    <h2>{{ form.__class__.__name__[:-4] }}</h2>
     <form method="post" action="/New{{ form.__class__.__name__[:-4] }}/">
         {{ form_fields(form) }}
         {{ action_buttons('Add') }}

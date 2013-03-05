@@ -72,8 +72,8 @@
 
 /* = ICON
 ----------------------------------------------------------------------------------------------------------------------*/
-button.Zebra_DatePicker_Icon                { position: absolute; width: 16px; height: 16px; background: url('../../../../../Downloads/zebra-datepicker.1.6.7/public/css/calendar.png') no-repeat left top; text-indent: -9000px; border: none; cursor: pointer; margin: 0 0 0 5px; padding: 0; line-height: 0 }
-button.Zebra_DatePicker_Icon_Disabled       { background-image: url('../../../../../Downloads/zebra-datepicker.1.6.7/public/css/calendar-disabled.png') }
+button.Zebra_DatePicker_Icon                { position: absolute; width: 16px; height: 16px; background: url('/static/img/calendar.png') no-repeat left top; text-indent: -9000px; border: none; cursor: pointer; margin: 0 0 0 5px; padding: 0; line-height: 0 }
+button.Zebra_DatePicker_Icon_Disabled       { background-image: url('/static/img/calendar-disabled.png') }
 button.Zebra_DatePicker_Icon_Inside         { margin: 0 3px 0 0 }
 
 /* Fix icon position in Chrome & Safari */

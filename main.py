@@ -87,7 +87,6 @@ class FreebiesHandler(BaseRequestHandler):
     def get(self):
         self.render('freebies.html')
 
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     webapp2.Route('/pixed', webapp2.RedirectHandler,defaults={'_uri': '/pixed/'}),
