@@ -2,7 +2,7 @@
 {% import 'forms.html' as form_macros %}
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="/static/less/zebra_datepicker.css" type="text/css">
+    <link href="/static/less/glDatePicker/glDatePicker.pixed.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/static/less/markitup/style.css" />
     <link rel="stylesheet" type="text/css" href="/static/less/markitup/set_style.css" />
 {% endblock %}
@@ -18,7 +18,7 @@
 
 {% block scripts %}
     {{ super() }}
-    <script type="text/javascript" src="/static/js/zebra_datepicker.js"></script>
+    <script type="text/javascript" src="/static/js/glDatePicker.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.markitup.js"></script>
     <script type="text/javascript">
         mySettings = {
@@ -38,7 +38,7 @@
         };
 
         $(document).ready(function() {
-            $('.datepicker').Zebra_DatePicker({ direction: 1, offset: [5, 50] });
+            $('.datepicker').glDatePicker({cssName: 'pixed'});
             $(".editor").markItUp(mySettings);
         });
 
