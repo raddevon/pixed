@@ -1,4 +1,4 @@
-from users import BaseRequestHandler, simpleauth_login_required
+from users import BaseRequestHandler, simpleauth_login_required, get_user_and_flags
 from lib.wtforms.ext.appengine.db import model_form
 from wtforms import widgets as w
 from main import PixedPreview
@@ -32,7 +32,8 @@ def build_form_class(model, date_fields=(), editor_fields=()):
 
 # Register models for the admin interface here
 admin_form_classes.append(
-    build_form_class(PixedPreview, ['date'], ['content'])
+    build_form_class(PixedPreview, ['date'], ['content']),
+
 )
 
 for form in admin_form_classes:
@@ -44,11 +45,10 @@ class AdminHandler(BaseRequestHandler):
     '''
     @simpleauth_login_required
     def get(self):
-        # todo-devon Figure out how to test for the authorized user
-        print self.current_user
 
         if admin_forms:
-            self.render('admin.html', {'forms': admin_forms})
+            user, flags = get_user_and_flags(self)
+            self.render('admin.html', {'forms': admin_forms, 'flags': flags})
         else:
             self.render('admin.html', {'error': 'No forms could be generated. This could be because no admin models \
             have been registered.'})

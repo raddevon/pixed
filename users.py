@@ -4,6 +4,19 @@ from webapp2_extras import auth, sessions, jinja2
 from jinja2.runtime import TemplateNotFound
 from lib.simpleauth import SimpleAuthHandler
 
+def get_user_and_flags(self):
+    """Returns the current user and permission flags for that user"""
+    flags = {}
+    user = None
+    if self.logged_in:
+        user = self.current_user
+        flags = {
+            # todo Uncomment this at some point
+            # 'admin': user.email in secrets.ADMIN_USERS,
+            'admin': True,
+            }
+    return user, flags
+
 def simpleauth_login_required(handler_method):
     """A decorator to require that a user be logged in to access a handler.
 

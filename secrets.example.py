@@ -13,3 +13,7 @@ AUTH_CONFIG = {
 
     # OpenID doesn't need any key/secret
 }
+
+# List of strings with email addresses of admin users
+ADMIN_USERS = ['email@domain.com',
+               ]

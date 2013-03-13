@@ -7,12 +7,13 @@ import sys
 if 'lib' not in sys.path:
     sys.path[0:0] = ['lib']
 
-import webapp2, re, os, users
+import webapp2, re, os, datetime
 from google.appengine.api import mail
 from google.appengine.ext import db
 from users import BaseRequestHandler
 from secrets import SESSION_KEY
 
+this_module = sys.modules[__name__]
 current_path = os.path.abspath(os.path.dirname(__file__))
 
 # webapp2 config
@@ -87,6 +88,25 @@ class FreebiesHandler(BaseRequestHandler):
     def get(self):
         self.render('freebies.html')
 
+class NewThingHandler(BaseRequestHandler):
+    def get(self, thing):
+        self.redirect('/admin/')
+    def post(self, thing):
+        ThisModel = getattr(this_module, thing)
+        arguments = {}
+        for property in ThisModel.properties().keys():
+            if type(ThisModel._properties[property]) is db.DateProperty:
+                this_date = map(int, self.request.get(property).split('/'))
+                this_date = datetime.date(this_date[2], this_date[0], this_date[1])
+                arguments[property] = this_date
+                continue
+            arguments[property] = self.request.get(property)
+
+        new_thing = ThisModel(**arguments)
+        new_thing.put()
+        self.redirect('/admin/')
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     webapp2.Route('/pixed', webapp2.RedirectHandler,defaults={'_uri': '/pixed/'}),
@@ -103,6 +123,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/logout/', handler='users.AuthHandler:logout', name='logout'),
     webapp2.Route('/auth/<provider>/', handler='users.AuthHandler:_simple_auth', name='auth_login'),
     webapp2.Route('/auth/<provider>/callback/', handler='users.AuthHandler:_auth_callback', name='auth_callback'),
-    webapp2.Route('/admin/', handler='admin.AdminHandler')
+    webapp2.Route('/admin/', handler='admin.AdminHandler'),
+    webapp2.Route('/New<thing>/', handler=NewThingHandler)
 
 ],config=app_config, debug=True)

@@ -10,10 +10,14 @@
 {% block title %}Pixed: Admin{% endblock %}
 
 {% block content %}
-    {% for form in forms %}
-        {{ form_macros.new_form(form) }}
-    {% endfor %}
-    {{ error }}
+    {% if flags['admin'] %}
+        {% for form in forms %}
+            {{ form_macros.new_form(form) }}
+        {% endfor %}
+        {{ error }}
+    {% else %}
+        <p>You do not have admin permissions for this site.</p>
+    {% endif %}
 {% endblock %}
 
 {% block scripts %}
