@@ -10,7 +10,9 @@ jinja_env = jinja2.Environment(
 
 RE_EMAIL = re.compile(r'^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$', re.IGNORECASE)
 
-next_issue = u"Teachers are constantly designing resources for use in their class. Make your designs more pleasing and deliberate by learning some design basics in the next issue of Pixed. Subscribe before <b>7am Eastern on Friday, March 15th, 2013</b>, to start your subscription with this issue!"
+next_issue = u"Tablets are taking over the classroom! In the next issue, find out how to get the most out of tabets in \
+your classroom. Subscribe before <b>7am Eastern on Friday, March 29th, 2013</b>, to start your subscription with this \
+issue!"
 
 def valid_email(email):
     return RE_EMAIL.match(email)
